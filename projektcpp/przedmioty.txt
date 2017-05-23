@@ -1,0 +1,2 @@
+Numer katalogowy: 1 Przedmiot: komputer Cena za sztuke: 2000
+Numer katalogowy: 2 Przedmiot: mysz Cena za sztuke: 50

@@ -1,0 +1,185 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <ctime>
+#include <sstream>
+#include <limits>
+
+using namespace std;
+
+string user = "", name;
+int cena;
+
+void stworz_plik(){
+	ofstream outfile ("przedmioty.txt");
+}
+
+
+void dodaj_do_pliku(){
+	string przedmiot;
+	int suma, counter, limit;
+	size_t lines_count =1;
+	ifstream aFile("przedmioty.txt"); 
+
+	string num_line,s;
+   	int numlin;
+
+   	while (std::getline(aFile , num_line))
+        ++lines_count;
+
+	cout << "Podaj nazwe przedmiotu: " << endl;
+	cin >> przedmiot;
+
+	cout << "Podaj cene za sztuke: " << endl;
+	cin >> cena;
+
+	ofstream log("przedmioty.txt", std::ios_base::app | std::ios_base::out);
+
+    log << "Numer katalogowy: " << lines_count << " " 
+    		"Przedmiot: "<< przedmiot << " " 
+    		"Cena za sztuke: "<< cena <<"\n";
+}
+
+void stworz_rachunek(){
+	string kupujacy;
+	time_t t = time(0);
+    struct tm * now = localtime( & t );
+
+	cout << "Podaj swoje imie: " << endl;
+	cin >> kupujacy;
+
+ 	char buf[16];
+	snprintf(buf, 16, "%lu", time(NULL));
+
+	name = "paragon_" + kupujacy + buf+ ".txt";
+
+	ofstream outfile (name);
+
+	ofstream log(name, std::ios_base::app | std::ios_base::out);
+
+    log << "Rachunek na dzien: " <<(now->tm_year + 1900) << '-' 
+         << (now->tm_mon + 1) << '-'
+         <<  now->tm_mday <<"\n";
+
+    log << "Przedmiot:" << " " << "Cena za sztuke:" <<"\n";
+}
+
+void dodaj_do_rachunku(){
+   	ifstream aFile("przedmioty.txt"); 
+
+   	size_t lines_count =0;
+   	string num_line,s;
+   	int numlin, ilosc;
+
+   	while (std::getline(aFile , num_line))
+        ++lines_count;
+
+    cout << "Jaki produkt chcesz dodac do rachunku? (numer produktu)" << endl;
+    cin >> numlin;
+
+    cout << "Ile sztuk chcesz zamowic?" << endl;
+    cin >> ilosc;
+
+	std::ifstream f("przedmioty.txt");
+
+	for (int i = 1; i <= numlin; i++)
+	        std::getline(f, s);
+
+	std::cout << "Wybrales: " << s;
+
+	ofstream outfile;
+	outfile.open(name, std::ios_base::app);
+	outfile << s << " Ilosc: "<< ilosc <<"\n";
+}
+
+void wyswietl_plik(){
+	ifstream f("przedmioty.txt");
+	if (f.is_open()){
+        cout << f.rdbuf();
+	}
+}
+
+void wyswietl_rachunek(){
+	ifstream f(name);
+	if (f.is_open()){
+        cout << f.rdbuf();
+	}
+}
+
+void logowanie(){
+	string pass = "";
+	bool loginsucc = false;
+
+	cout << "Zaloguj sie do systemu!" << endl;
+
+	do {
+		cout << "Podaj nazwe uzytkownika: ";
+		cin >> user;
+		cout << "Podaj haslo: ";
+		cin >> pass;
+
+		if (user == "user" && pass == "zxczxc"){
+			cout << "Witaj " << user << "\n";
+			loginsucc = true;
+		} else if (user == "admin" && pass == "zxczxc"){
+			cout << "Witaj " << user << "\n";
+			loginsucc = true;
+		} else{
+			cout << "Sprobuj ponownie!" << endl;
+		}
+
+	}while(!loginsucc);
+}
+
+int main(){
+	cout << "Witaj w sklepie!" << endl;
+	int wybor;
+	bool checkloop = false;
+	logowanie();
+
+	do {
+		if (user == "admin"){
+			cout << "\nCo chcesz zrobić? \n(0 - utworz plik przedmiotow (usuwa wczesniejszy), 1 - dodaj przedmiot, 2 - wyswietl przedmioty w pliku/napraw plik, 99999 - wyjscie)" << endl;;
+			cin >> wybor;
+
+			if(wybor == 0){
+				stworz_plik();
+			} else if (wybor == 1){
+				dodaj_do_pliku();
+			} else if (wybor == 2){
+				wyswietl_plik();
+				//numeruj_produktu();
+			} else if (wybor == 99999) {
+				checkloop = true;
+			} else {
+				cout << "Sprobuj ponownie!" << endl;
+			}
+		} else if (user == "user"){
+			cout << "\nCo chcesz zrobić? \n(0 - pokaz przedmioty, 1 - stworz swoj rachunek, 2 - pokaz rachunek, 3 - dodaj do rachunku, 4 - suma 99999 - wyjscie)" << endl;;
+			cin >> wybor;
+
+			if(wybor == 0){
+				wyswietl_plik();
+			} else if (wybor == 1){
+				stworz_rachunek();
+			} else if (wybor == 2){
+				wyswietl_rachunek();
+			} else if (wybor == 99999) {
+				checkloop = true;
+			} else if (wybor == 3){
+				dodaj_do_rachunku();
+			} else if (wybor == 4) {
+				cena_rachunek();
+			} else {
+				cout << "Sprobuj ponownie!" << endl;
+			}
+
+		}
+	} while (!checkloop);
+
+	cin.get();
+	return 0;
+}
