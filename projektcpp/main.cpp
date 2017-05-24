@@ -7,6 +7,9 @@
 #include <ctime>
 #include <sstream>
 #include <limits>
+#include <cstring>
+#include <cstddef>
+
 
 using namespace std;
 
@@ -95,6 +98,24 @@ void dodaj_do_rachunku(){
 	outfile << s << " Ilosc: "<< ilosc <<"\n";
 }
 
+void cena_wlasciwa(){
+	ifstream is {name}; 
+	int x,y,z, sum = 0;
+	vector<string> v {istream_iterator<string>{is},istream_iterator<string>{}};
+
+	for (int i=0; i<v.size();i++){
+		for(int j = 0; j < v.size();j++){
+			if(v[i] == "sztuke:" && v[j] == "Ilosc:"){
+				x = atoi(v[i+1].c_str());
+				y = atoi(v[j+1].c_str());
+				z=x*y;
+				sum = sum+z;
+				cout << sum << endl;
+			}
+		}
+	}
+}
+
 void wyswietl_plik(){
 	ifstream f("przedmioty.txt");
 	if (f.is_open()){
@@ -172,7 +193,7 @@ int main(){
 			} else if (wybor == 3){
 				dodaj_do_rachunku();
 			} else if (wybor == 4) {
-				cena_rachunek();
+				cena_wlasciwa();
 			} else {
 				cout << "Sprobuj ponownie!" << endl;
 			}
