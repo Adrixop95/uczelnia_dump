@@ -14,7 +14,7 @@
 using namespace std;
 
 string user = "", name;
-int cena, sum_cal;
+int cena, sum_cal, podatek_sum, promocja_sum;
 
 void stworz_plik(){
 	ofstream outfile ("przedmioty.txt");
@@ -114,6 +114,20 @@ void cena_wlasciwa(){
 			}
 		}
 	}
+}
+
+void podatek(){
+	podatek_sum = suma_cal + suma_cal * 23 / 100;
+	cout << "Do zaplaty z podatkiem: " << podatek_sum << endl;
+}
+
+void promocja(){
+	int promocja;
+
+	cout << "Ile procent ma wynosic promocja?" << endl;
+	cin >> promocja;
+
+	promocja_sum = suma_cal 
 }
 
 
