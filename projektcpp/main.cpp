@@ -14,7 +14,7 @@
 using namespace std;
 
 string user = "", name;
-int cena;
+int cena, sum_cal;
 
 void stworz_plik(){
 	ofstream outfile ("przedmioty.txt");
@@ -100,7 +100,7 @@ void dodaj_do_rachunku(){
 
 void cena_wlasciwa(){
 	ifstream is {name}; 
-	int x,y,z, sum = 0;
+	int x,y,z, podatek, promocja,promwyn;
 	vector<string> v {istream_iterator<string>{is},istream_iterator<string>{}};
 
 	for (int i=0; i<v.size();i++){
@@ -109,12 +109,13 @@ void cena_wlasciwa(){
 				x = atoi(v[i+1].c_str());
 				y = atoi(v[j+1].c_str());
 				z=x*y;
-				sum = sum+z;
-				cout << sum << endl;
+				sum_cal = sum_cal+z;
+				cout << "Suma bez podatku: " << sum_cal << endl;
 			}
 		}
 	}
 }
+
 
 void wyswietl_plik(){
 	ifstream f("przedmioty.txt");
