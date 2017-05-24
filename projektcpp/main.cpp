@@ -117,17 +117,18 @@ void cena_wlasciwa(){
 }
 
 void podatek(){
-	podatek_sum = suma_cal + suma_cal * 23 / 100;
+	podatek_sum = sum_cal + sum_cal * 23 / 100;
 	cout << "Do zaplaty z podatkiem: " << podatek_sum << endl;
 }
 
-void promocja(){
+void promocja_z_podatkiem(){
 	int promocja;
 
 	cout << "Ile procent ma wynosic promocja?" << endl;
 	cin >> promocja;
 
-	promocja_sum = suma_cal 
+	promocja_sum = podatek_sum - podatek_sum * promocja / 100;
+	cout <<  "Do zaplaty z promocja i podatkiem: " << promocja_sum << endl;
 }
 
 
@@ -209,6 +210,8 @@ int main(){
 				dodaj_do_rachunku();
 			} else if (wybor == 4) {
 				cena_wlasciwa();
+				podatek();
+				promocja_z_podatkiem();
 			} else {
 				cout << "Sprobuj ponownie!" << endl;
 			}
