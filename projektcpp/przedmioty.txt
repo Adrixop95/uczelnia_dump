@@ -1,3 +1,4 @@
 Numer katalogowy: 1 Przedmiot: komputer Cena za sztuke: 2000
 Numer katalogowy: 2 Przedmiot: mysz Cena za sztuke: 50
 Numer katalogowy: 3 Przedmiot: laptop Cena za sztuke: 5000
+Numer katalogowy: 4 Przedmiot: telefon Cena za sztuke: 1500

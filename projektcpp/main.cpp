@@ -14,7 +14,7 @@
 using namespace std;
 
 string user = "", name;
-int cena, sum_cal, podatek_sum, promocja_sum;
+float cena, sum_cal, podatek_sum, promocja_sum, promocja_bez;
 
 void stworz_plik(){
     ofstream outfile ("przedmioty.txt");
@@ -108,10 +108,11 @@ void cena_wlasciwa(){
                 y = atoi(v[j+1].c_str());
                 z=x*y;
                 sum_cal = sum_cal+z;
-                cout << "Suma bez podatku: " << sum_cal << endl;
             }
         }
     }
+    cout << "Suma bez podatku: " << sum_cal << endl;
+
 }
 
 void podatek(){
@@ -129,6 +130,16 @@ void promocja_z_podatkiem(){
     cout <<  "Do zaplaty z promocja i podatkiem: " << promocja_sum << endl;
 }
 
+void promocja_bez_podatku(){
+	int promocja;
+
+	cout << "Ile procent ma wynosic promocja?" << endl;
+	cin >> promocja;
+
+	promocja_bez = sum_cal - sum_cal * promocja / 100;
+	cout <<  "Do zaplaty z promocja i podatkiem: " << promocja_bez << endl;
+
+}
 
 void wyswietl_plik(){
     ifstream f("przedmioty.txt");
@@ -171,7 +182,7 @@ void logowanie(){
 
 int main(){
     cout << "Witaj w sklepie!" << endl;
-    int wybor;
+    int wybor, type;
     bool checkloop = false;
     logowanie();
     
@@ -208,7 +219,26 @@ int main(){
             } else if (wybor == 4) {
                 cena_wlasciwa();
                 podatek();
-                promocja_z_podatkiem();
+                cout << "Jaki typ chcesz wybrac?\n(1 - promocja i bez podatku, 2 - z podatkiem i bez promocji, 3 - z promocja i bez podatku, 4 - z podatkiem i z promocja)" << type << endl;
+                cin >> type;
+
+                if (type == 1){
+                	cena_wlasciwa();
+                	promocja_bez_podatku();
+                } else if (type == 2){
+                	cena_wlasciwa();
+                	podatek();
+                } else if (type == 3){
+                	cena_wlasciwa();
+                	promocja_z_podatkiem();
+                } else if (type == 4){
+                	cena_wlasciwa();
+                	podatek();
+                	promocja_z_podatkiem();
+
+                } else {
+                	cout << "Sprobuj ponownie!" << endl;
+                }  
             } else {
                 cout << "Sprobuj ponownie!" << endl;
             }
