@@ -1,0 +1,5 @@
+Rachunek na dzien: 2017-5-27
+Przedmiot: Cena za sztuke:
+Numer katalogowy: 2 Przedmiot: komputer Cena za sztuke: 1500 Ilosc: 1
+Numer katalogowy: 2 Przedmiot: komputer Cena za sztuke: 1500 Ilosc: 3
+Numer katalogowy: 2 Przedmiot: komputer Cena za sztuke: 1500 Ilosc: 1
