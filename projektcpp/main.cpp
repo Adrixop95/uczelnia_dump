@@ -32,7 +32,7 @@ void dodaj_do_pliku(){
         ++lines_count;
     
     cout << "Podaj nazwe przedmiotu: " << endl;
-    cin >> przedmiot;
+    cin >> przedmiot; 
     
     cout << "Podaj cene za sztuke: " << endl;
     cin >> cena;
@@ -45,17 +45,20 @@ void dodaj_do_pliku(){
 }
 
 void stworz_rachunek(){
-    string kupujacy;
+    string kupujacy, nazw;
     time_t t = time(0);
     struct tm * now = localtime( & t );
     
     cout << "Podaj swoje imie: " << endl;
     cin >> kupujacy;
-    
+
+    cout << "Podaj swoje nazwisko: " << endl;
+    cin >> nazw;
+
     char buf[16];
     snprintf(buf, 16, "%lu", time(NULL));
     
-    name = "paragon_" + kupujacy + buf+ ".txt";
+    name = "rachunek_" + kupujacy + "_" + nazw + "_" + buf + ".txt";
     
     ofstream outfile (name);
     
