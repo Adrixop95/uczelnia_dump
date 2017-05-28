@@ -144,20 +144,6 @@ void promocja_bez_podatku(){
 
 }
 
-void sortuj_rachunek(){
-	ifstream infile(name);
-    vector<string> v {istream_iterator<string>{is},istream_iterator<string>{}};
-    
-    for (int i=0; i<v.size();i++){
-        for(int j = 0; j < v.size();j++){
-            if(v[i] == "sztuke:" && v[j] == "Ilosc:"){
-            	
-            }
-        }
-    }
-
-}
-
 void wyswietl_plik(){
     ifstream f("przedmioty.txt");
     if (f.is_open()){
