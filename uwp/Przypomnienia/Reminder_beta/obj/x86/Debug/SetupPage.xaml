@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="Reminder_beta.SetupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Reminder_beta"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid  Width="auto" Margin="0,10,0,0" Background="DimGray">
+        <TextBox x:ConnectionId='1' x:Name="WhatToRemind" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Nazwa" VerticalAlignment="Top" Margin="0,30,0,0" Height="45" Width="340" FontSize="20" PlaceholderText="Name" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="White" SelectionHighlightColor="#FF0078D7"/>
+        <CheckBox x:ConnectionId='2' x:Name="AfterMeal" Content="Po posilku" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,89,0,0" Height="0" RenderTransformOrigin="0.434,1.08"/>
+        <CheckBox x:ConnectionId='3' x:Name="BeforeMeal" Content="Przed posilkiem" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,89,0,0" Height="0" RenderTransformOrigin="0.434,1.08"/>
+        <TextBox x:ConnectionId='4' x:Name="Quantity" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="10,153,0,0" Width="215" InputScope="Digits" PlaceholderText="Ilosc" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+        <ComboBox x:ConnectionId='5' x:Name="UnitBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="230,153,0,0">
+            <ComboBoxItem Content="ml"/>
+            <ComboBoxItem Content="sztuk" IsSelected="True"/>
+            <ComboBoxItem Content="g" />
+        </ComboBox>
+        <TimePicker x:ConnectionId='6' x:Name="TimePicker" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,220,0,0" ClockIdentifier="24HourClock" Height="74" Width="215">
+            <TextBox x:ConnectionId='15' x:Name="textBox1" TextWrapping="Wrap" Text="Wybierz czas i dni:" IsReadOnly="True" Foreground="{x:Null}" BorderBrush="{x:Null}"/>
+        </TimePicker>
+        <Button x:ConnectionId='7' x:Name="button" Content="Zapisz" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10,575,0,0" Width="340" Height="30" FontSize="15" Background="#FFF5C900"                      VerticalContentAlignment="Stretch"/>
+        <CheckBox x:ConnectionId='8' x:Name="Monday" Content="Poniedzialek" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,301,0,0"/>
+        <CheckBox x:ConnectionId='9' x:Name="Tuesday" Content="Wtorek" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,333,0,0"/>
+        <CheckBox x:ConnectionId='10' x:Name="Wednesday" Content="Sroda" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,365,0,0"/>
+        <CheckBox x:ConnectionId='11' x:Name="Thursday" Content="Czwartek" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,301,0,0"/>
+        <CheckBox x:ConnectionId='12' x:Name="Friday" Content="Piatek" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,333,0,0"/>
+        <CheckBox x:ConnectionId='13' x:Name="Saturday" Content="Sobota" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,365,0,0"/>
+        <CheckBox x:ConnectionId='14' x:Name="Sunday" Content="Niedziela" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,397,0,0"/>
+    </Grid>
+</Page>
+

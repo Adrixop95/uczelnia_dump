@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="Reminder_beta.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Reminder_beta"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <Grid  Width="auto" Margin="0,10,0,0" Background="DimGray">
+        <TextBlock x:ConnectionId='1' x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Przypomnienia" VerticalAlignment="Top" Margin="52,25,40,0"  Height="66" Width="268" FontSize="40" TextAlignment="Center"                                              />
+        <Button x:ConnectionId='2' x:Name="NavigateToReminders" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,195,0,0" Height="48" Width="340" FontSize="24"                                   Content="Moje przypomnienia" Background="#FFF5C900"/>
+    </Grid>
+</Page>
+

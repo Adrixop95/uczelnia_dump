@@ -1,0 +1,6 @@
+"/t:System.Collections.Generic.List`1[[System.Int32,System.Runtime]],mscorlib,dcs"
+"/t:System.Collections.Generic.List`1[[System.String,System.Runtime]],mscorlib,dcs"
+"/t:System.Collections.Generic.List`1[[System.Boolean,System.Runtime]],mscorlib,dcs"
+"/t:System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.DayOfWeek,System.Runtime]],mscorlib]],mscorlib,dcs"
+"/t:System.Collections.Generic.List`1[[System.TimeSpan,System.Runtime]],mscorlib,dcs"
+"/t:System.Collections.Generic.List`1[[Reminder_beta.ReminderData,Reminder_beta]],mscorlib,dcs"

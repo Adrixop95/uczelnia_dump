@@ -1,0 +1,2 @@
+C:\Users\adria\Documents\Przypomnienia\Background\Background.csproj;x86
+C:\Users\adria\Documents\Przypomnienia\Reminder_beta\Reminder.csproj;x86
